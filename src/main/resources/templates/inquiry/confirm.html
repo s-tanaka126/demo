@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>確認画面</title>
+</head>
+<body>
+<h1>確認画面</h1>
+  <div th:object="${inquiryRequest}">
+  <p>メール</p>
+  <p th:text="*{userEmail}"></p>
+  <p>お問い合わせ</p>
+  <p th:text="*{inquiryContent}"></p>
+
+   <form method="post" action="#" th:action="@{/inquiry/form}">  
+      <input type="hidden" name="userEmail" th:value="*{userEmail}">
+      <input type="hidden" name="inquiryContent" th:value="*{inquiryContent}">
+	  <input type="submit" value="戻る">
+   </form>
+   
+   <form method="post" action="#" th:action="@{/inquiry/complete}">
+      <input type="hidden" name="userEmail" th:value="*{userEmail}">
+      <input type="hidden" name="inquiryContent" th:value="*{inquiryContent}">
+   	  <input type="submit" value="送信">
+   </form>
+  
+  
+</div>
+
+</body>
+</html>
